@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Proyecto_final_barberia.Models.barbero>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>BARBEROS</h2>
+
+<p id="link">
+    @Html.ActionLink("AGREGAR NUEVO BARBERO", "Create", new { @class = "linktxt"})
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teléfono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+        <th>OPCIONES DISPONIBLES</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.teléfono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.cod_barbero }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.cod_barbero }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.cod_barbero })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<style>
+    h2 {
+        text-align: center;
+        font-family: Oswald;
+        font-weight:bold;
+        font-size: 3em;
+        color: white;
+    }
+
+    #link {
+        text-align: center;
+        font-family: Oswald;
+        font-weight: bold;
+        font-size: 3em;
+        color: #ffb631;
+        text-decoration: none;
+    }
+        #link:hover {
+            text-decoration: none;
+            color: #3694f1;
+        }
+    a {
+        color: #f2b541;
+        text-decoration:none
+    }
+    a:hover {
+        color: #f2b541;
+        text-decoration: none
+    }
+    body {
+        background-image: url(/Imagenes/fondoBarberos.png);
+        background-size: cover;
+    }
+
+    .table {
+        text-align:center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        background-color: white;
+        border-radius:.4em;
+        opacity:80%
+    }
+    .table:hover{
+        opacity:100%;
+    }
+    th {
+        border-top-left-radius: .4em;
+        text-align:center;
+    }
+    td {
+        padding-top: 1vh;
+        padding-bottom: 1vh;
+        background-color: #f7f7f7;
+        border-color: #ededed;
+    }
+    th:first-of-type,
+    td:first-of-type{
+        background-color: #ededed;
+    }
+    td:last-of-type{
+        background-color:#ededed;
+        border-bottom-right-radius:.4em;
+    }
+
+</style>

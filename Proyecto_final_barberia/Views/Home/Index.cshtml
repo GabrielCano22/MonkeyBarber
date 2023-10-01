@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Página de inicio";
+}
+<div class="contenedorB">
+    <!--<div class="jumbotron">
+        <h1 id="uno">Monkey Barber</h1>
+        <p class="lead" id="uno">Hola; sea bienvenido a la pagina de nuestra barberia, por favor lea las indicaciones de abajo e ingrese a la que sea de su interés. Muchas gracias.</p>-->
+    @*<p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
+    <!--</div>-->
+    <!--<div class="row">
+        <div class="col-md-4">
+            <h2>
+        @Html.ActionLink("Lista de turnos", "Index", "Turnoes")
+        </h2>
+            <p id="uno">
+                Ingrese aqui para agregar, eliminar o modificar los turnos de las personas del local
+            </p>-->
+    @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>*@
+    <!--</div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Lista de barberos","Index","barberoes")</h2>
+        <p id="uno">Ingrese aqui para conocer la lista de barberos, agregar, eliminar o modificar a alguna de las personas que trabajan en éste local.</p>-->
+    @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>*@
+    <!--</div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Lista de deudores","Index","deudores")</h2>
+        <p id="uno">Ingrese aqui para conocer la lista de aquellas personas que deben dinero; para agregar, eliminar o modificar a alguien de ésta lista.</p>-->
+    @*<p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>*@
+    <!--</div>
+    </div>-->
+</div>
+<style>
+    body {
+        width:80%;
+        height:10vh;
+        background-image:url(../../Imagenes/FondoLobby.png);
+        background-repeat:no-repeat;
+        background-size:99.99% 100%;
+        background-attachment:fixed;
+    }
+        .jumbotron {
+            color: white;
+            background: none;
+        }
+
+        #uno {
+            color: white;
+        }
+
+
+
+        .content{
+            display:inline-flex;
+        }
+        h2 {
+            margin-left:10%;
+            color: #0a0eba;
+            transition: transform.5s;
+        }
+        h2:hover {
+            color: #696cf7;
+            transform: scale(1.1);
+            text-decoration:none;
+        }
+        .row {
+            padding: 3em;
+        }
+</style>

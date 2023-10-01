@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="barberiaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="barbero">
+    <Key>
+      <PropertyRef Name="cod_barbero" />
+    </Key>
+    <Property Name="cod_barbero" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="documento" Type="int" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="teléfono" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="deudores">
+    <Key>
+      <PropertyRef Name="cod_deudor" />
+    </Key>
+    <Property Name="cod_deudor" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="50" />
+    <Property Name="direccion" Type="nvarchar" MaxLength="50" />
+    <Property Name="telefono_fijo" Type="int" />
+    <Property Name="celular" Type="int" />
+    <Property Name="documento" Type="int" />
+    <Property Name="cantidad_que_debe" Type="int" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="cod_turno" />
+    </Key>
+    <Property Name="cod_turno" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="hora" Type="time" Precision="7" />
+    <Property Name="valor" Type="int" />
+    <Property Name="nombre_cliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="nombre_barbero" Type="nvarchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="barberiaModelStoreContainer">
+    <EntitySet Name="barbero" EntityType="Self.barbero" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="deudores" EntityType="Self.deudores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

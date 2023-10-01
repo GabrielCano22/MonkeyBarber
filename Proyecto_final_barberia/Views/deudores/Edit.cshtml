@@ -1,0 +1,272 @@
+﻿@model Proyecto_final_barberia.Models.deudores
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>EDITAR DATOS DEL DEUDOR</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4 id="seccion">DEUDOR</h4>
+    <hr id="linea" />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.cod_deudor)
+
+    <div id="primerFila">
+        <div class="form-group">
+            @Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.telefono_fijo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.telefono_fijo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.telefono_fijo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div id="segundaFila">
+        <div class="form-group celphone">
+            @Html.LabelFor(model => model.celular, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 celular">
+                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group document">
+            @Html.LabelFor(model => model.documento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 documento">
+                @Html.EditorFor(model => model.documento, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.documento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div id="tercerFila">
+        <div class="form-group campus">
+            @Html.LabelFor(model => model.cantidad_que_debe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.cantidad_que_debe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.cantidad_que_debe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group select">
+            @Html.LabelFor(model => model.activo, htmlAttributes: new { @class = "control-label col-md-2 pruebaReemplazo" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.activo)
+                    @Html.ValidationMessageFor(model => model.activo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group actd">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="GUARDAR CAMBIOS" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div id="regreso">
+    @Html.ActionLink("VER LISTA DE DEUDORES", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<style>
+    .body-content {
+        margin-top: 1%;
+        width: 100%;
+    }
+
+    .btn-default {
+        border-radius:2px;
+        margin-top: 5%;
+        margin-left: 60%;
+        padding-bottom: 5%;
+        font-family: Oswald;
+        font-weight: bold;
+        font-size: 2.3em;
+        width: 90%;
+        height: 50%;
+        color: black;
+        background-color: #fcb330;
+    }
+
+        .btn-default:hover {
+            background-color: #ffd171;
+        }
+
+    .form-horizontal {
+        width: 100%;
+    }
+
+    label {
+        text-transform: uppercase;
+        font-family: Oswald;
+        font-size: 1.3em;
+    }
+
+        label.pruebaReemplazo {
+            visibility: hidden;
+        }
+
+            label.pruebaReemplazo:before {
+                content: "DEUDOR_ACTIVO";
+                visibility: visible;
+            }
+
+    #primerFila {
+        margin-left: 3%;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    input, select, textarea {
+        max-width: 110%;
+    }
+
+    #segundaFila {
+        margin-left: 16%;
+        display: inline-flex;
+        width: 100%;
+    }
+    .celphone{
+        max-width:550px;
+    }
+    .col-md-10.celular{
+        width:480px;
+    }
+    .document{
+        max-width:480px;
+    }
+    .col-md-10.documento{
+        width:480px;
+    }
+    #tercerFila {
+        margin-left: 37%;
+        display: inline-flex;
+        width: 100%;
+    }
+    #cantidad_que_debe{
+        width:100%;
+        max-width:100%;
+    }
+    .col-md-5{
+        width:100%;
+        max-width:180px;
+    }
+    .form-group.campus{
+       max-width:220px
+    }
+    .form-group.select{
+        margin-bottom:2%;
+    }
+    .campus{
+            width:100px;
+    }
+    .actd{
+            margin-left:-280px
+    }
+    #activo{
+        width:30%
+    }
+    #turno_activo {
+        width: 100%;
+        margin-left: -10%;
+    }
+
+    select {
+        border-radius: 2px;
+        width: 60%;
+        height: 80%;
+    }
+
+    .checkbox {
+        height: 150%;
+        color: black;
+    }
+
+    .contenedorActivo {
+        margin-bottom: 1.8%;
+    }
+
+    .form-group {
+        display: grid;
+        width: 50%;
+    }
+
+    .form-control {
+        border-radius: 2px;
+        height: 38px;
+    }
+
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+
+    h2 {
+        font-family: Oswald;
+        text-align: center;
+        font-size: 3em;
+        color: #f2b541;
+    }
+
+    #seccion {
+        margin-top:-2%;
+        font-family: Oswald;
+        font-size: 2em;
+        color: white;
+    }
+
+    #linea {
+        width: 100%;
+    }
+
+    #regreso {
+        margin-top: 3%;
+        font-family: Oswald;
+    }
+
+        #regreso > a {
+            color: #ffd171;
+            font-size: 1.5em;
+        }
+
+    body {
+        background-image: url(../../Imagenes/FondoDeudor.png);
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    div {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+    }
+
+</style>

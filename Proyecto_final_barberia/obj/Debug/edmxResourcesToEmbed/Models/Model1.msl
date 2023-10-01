@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="barberiaModelStoreContainer" CdmEntityContainer="barberiaEntities">
+    <EntitySetMapping Name="barbero">
+      <EntityTypeMapping TypeName="barberiaModel.barbero">
+        <MappingFragment StoreEntitySet="barbero">
+          <ScalarProperty Name="cod_barbero" ColumnName="cod_barbero" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="teléfono" ColumnName="teléfono" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="deudores">
+      <EntityTypeMapping TypeName="barberiaModel.deudores">
+        <MappingFragment StoreEntitySet="deudores">
+          <ScalarProperty Name="cod_deudor" ColumnName="cod_deudor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefono_fijo" ColumnName="telefono_fijo" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="documento" ColumnName="documento" />
+          <ScalarProperty Name="cantidad_que_debe" ColumnName="cantidad_que_debe" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turno">
+      <EntityTypeMapping TypeName="barberiaModel.Turno">
+        <MappingFragment StoreEntitySet="Turno">
+          <ScalarProperty Name="cod_turno" ColumnName="cod_turno" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="nombre_barbero" ColumnName="nombre_barbero" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

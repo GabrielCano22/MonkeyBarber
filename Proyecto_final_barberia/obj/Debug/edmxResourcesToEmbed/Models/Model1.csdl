@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="barberiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="barbero">
+    <Key>
+      <PropertyRef Name="cod_barbero" />
+    </Key>
+    <Property Name="cod_barbero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="documento" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="teléfono" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="deudores">
+    <Key>
+      <PropertyRef Name="cod_deudor" />
+    </Key>
+    <Property Name="cod_deudor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="telefono_fijo" Type="Int32" />
+    <Property Name="celular" Type="Int32" />
+    <Property Name="documento" Type="Int32" />
+    <Property Name="cantidad_que_debe" Type="Int32" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Turno">
+    <Key>
+      <PropertyRef Name="cod_turno" />
+    </Key>
+    <Property Name="cod_turno" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="hora" Type="Time" Precision="7" />
+    <Property Name="valor" Type="Int32" />
+    <Property Name="nombre_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nombre_barbero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="activo" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="barberiaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="barbero" EntityType="Self.barbero" />
+    <EntitySet Name="deudores" EntityType="Self.deudores" />
+    <EntitySet Name="Turno" EntityType="Self.Turno" />
+  </EntityContainer>
+</Schema>

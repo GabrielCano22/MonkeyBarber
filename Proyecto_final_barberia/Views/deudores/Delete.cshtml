@@ -1,0 +1,281 @@
+﻿@model Proyecto_final_barberia.Models.deudores
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>ELIMINAR DEUDOR</h2>
+
+<h2 id="confirmacion">¿ESTÁ SEGURO DE ELIMINAR EL SIGUIENTE DEUDOR?</h2>
+<div id="contenedor">
+    <h4 id="seccion">DEUDOR</h4>
+    <hr id="linea" />
+    <dl class="dl-horizontal">
+        <div id="primerFila">
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt id="separar">
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+        </div>
+
+        <div id="segundaFila">
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono_fijo)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.telefono_fijo)
+            </dd>
+
+            <dt id="separar2">
+                @Html.DisplayNameFor(model => model.celular)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.celular)
+            </dd>
+        </div>
+
+        <div id="tercerFila">
+            <dt>
+                @Html.DisplayNameFor(model => model.documento)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.documento)
+            </dd>
+
+            <dt id="separar3">
+                @Html.DisplayNameFor(model => model.cantidad_que_debe)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.cantidad_que_debe)
+            </dd>
+        </div>
+        <dt id="pruebaReemplazo">
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd id="pruebaReemplazoOption">
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="ELIMINAR DEUDOR" class="btn btn-default" /> 
+        </div>
+        <div id="regreso">
+            @Html.ActionLink("VER LISTA DE DEUDORES", "Index")
+        </div>
+    }
+</div>
+
+<style>
+    :root {
+        --separador: 6%;
+    }
+
+    #separar {
+        margin-left: var(--separador);
+    }
+    #separar2 {
+        margin-left: 10%;
+    }
+    #separar3 {
+        margin-left: 23%;
+    }
+    .body-content {
+        margin-top: 1%;
+        width: 100%;
+    }
+
+    .btn-default {
+        border-radius: 2px;
+        margin-top: .5%;
+        margin-left: 30%;
+        font-family: Oswald;
+        font-weight: bold;
+        font-size: 2.3em;
+        width: 40%;
+        height: 80%;
+        color: black;
+        background-color: #fcb330;
+    }
+
+        .btn-default:hover {
+            background-color: #ffd171;
+        }
+
+    dt, dd {
+        font-family: Oswald;
+        text-transform: uppercase;
+    }
+
+    .dl-horizontal dt {
+        width: 300px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 1px;
+    }
+
+    .form-horizontal {
+        width: 100%;
+    }
+
+    dt#pruebaReemplazo {
+        margin-top: 2%;
+        margin-left: 40%;
+        visibility: hidden;
+        font-size: 2em;
+        width: 207px;
+        height: 40px;
+    }
+
+        dt#pruebaReemplazo:before {
+            content: "DEUDOR_ACTIVO";
+            visibility: visible;
+        }
+
+    dd#pruebaReemplazoOption {
+        margin-top: 2.2%;
+    }
+
+    select.tri-state {
+        height: 35px;
+        font-size: 1.3em;
+        color: black;
+        text-transform: uppercase;
+    }
+
+    #primerFila {
+        margin-top: 1%;
+        margin-left: -3%;
+        font-size: 2.5em;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    input, select, textarea {
+        max-width: 110%;
+        max-height: 110%;
+    }
+
+    #segundaFila {
+        margin-top: 3%;
+        font-size: 2.5em;
+        margin-left: 3%;
+        display: inline-flex;
+        width: 100%;
+    }
+    #tercerFila {
+        margin-top: 3%;
+        font-size: 2.5em;
+        margin-left: 1%;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    select {
+        border-radius: 2px;
+        width: 10%;
+        height: 80%;
+    }
+
+    .checkbox {
+        color: black;
+    }
+
+    .contenedorActivo {
+        margin-bottom: 1.6%;
+    }
+
+    .form-group {
+        display: grid;
+        width: 50%;
+    }
+
+    .form-control {
+        border-radius: 2px;
+        height: 38px;
+    }
+
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+
+    h2 {
+        font-family: Oswald;
+        text-align: center;
+        font-size: 3em;
+        color: #f2b541;
+    }
+
+    #confirmacion {
+        margin-top: -.2%;
+    }
+
+    #seccion {
+        font-family: Oswald;
+        font-size: 2em;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    #linea {
+        width: 100%;
+    }
+
+    h4 {
+        margin-top: -10px;
+    }
+
+    hr {
+        margin-top: 10px;
+    }
+
+    #regreso {
+        margin-top: .5%;
+        font-family: Oswald;
+    }
+
+        #regreso > a {
+            color: #ffd171;
+            font-size: 1.5em;
+        }
+
+    body {
+        background-image: url(../../Imagenes/FondoDeudor.png);
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    div {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+    }
+</style>

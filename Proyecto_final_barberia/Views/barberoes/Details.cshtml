@@ -1,0 +1,218 @@
+﻿@model Proyecto_final_barberia.Models.barbero
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>DETALLES DEL BARBERO</h2>
+
+<div id="contenedor">
+    <h4 id="seccion">Turno</h4>
+    <hr id="linea" />
+    <dl class="dl-horizontal">
+
+        <div id="primerFila">
+            <dt>
+                @Html.DisplayNameFor(model => model.documento)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.documento)
+            </dd>
+
+            <dt id="separar">
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                |
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+        </div>
+
+        <div id="segundaFila">
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>|
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt id="separar2">
+                @Html.DisplayNameFor(model => model.teléfono)
+            </dt>
+
+            <dd>|
+                @Html.DisplayFor(model => model.teléfono)
+            </dd>
+        </div>
+
+        <dt id="pruebaReemplazo">
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd id="pruebaReemplazoOption">
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+
+    </dl>
+</div>
+<p id="regreso">
+    @Html.ActionLink("EDITAR BARBERO", "Edit", new { id = Model.cod_barbero }) |
+    @Html.ActionLink("VER LISTA DE BARBEROS", "Index")
+</p>
+
+<style>
+    DETALLES
+    :root {
+        --separador: 15%;
+    }
+
+    #separar {
+        margin-left: var(--separador);
+    }
+    #separar2 {
+        margin-left: 1%;
+    }
+    .body-content {
+        margin-top: 2%;
+        width: 100%;
+    }
+
+    dt, dd {
+        font-family: Oswald;
+        text-transform: uppercase;
+    }
+
+    .dl-horizontal dt {
+        width: 275px;
+    }
+
+    .dl-horizontal dd {
+        margin-left: 1px;
+    }
+
+    .form-horizontal {
+        width: 100%;
+    }
+
+    dt#pruebaReemplazo {
+        margin-top: 5%;
+        margin-left: 36%;
+        visibility: hidden;
+        font-size: 2em;
+        width: 225px;
+        height: 40px;
+    }
+
+        dt#pruebaReemplazo:before {
+            content: "BARBERO_ACTIVO";
+            visibility: visible;
+        }
+
+    dd#pruebaReemplazoOption {
+        margin-top: 5.5%;
+    }
+
+    select.tri-state {
+        height: 26.6px;
+        color: black;
+        text-transform: uppercase
+    }
+
+    #primerFila {
+        margin-top: 3%;
+        margin-left: 8%;
+        font-size: 2.5em;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    input, select, textarea {
+        max-width: 10%;
+        max-height: 110%;
+    }
+
+    #segundaFila {
+        margin-top: 5%;
+        font-size: 2.5em;
+        margin-left: 6.5%;
+        display: inline-flex;
+        width: 100%;
+    }
+
+    select {
+        border-radius: 2px;
+        width: 60%;
+        height: 80%;
+    }
+
+    .checkbox {
+        height: 200%;
+        color: black;
+    }
+
+    .contenedorActivo {
+        margin-bottom: 1.6%;
+    }
+
+    .form-group {
+        display: grid;
+        width: 50%;
+    }
+
+    .form-control {
+        border-radius: 2px;
+        height: 38px;
+    }
+
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+
+    h2 {
+        font-family: Oswald;
+        text-align: center;
+        font-size: 3em;
+        color: #f2b541;
+    }
+
+    #seccion {
+        margin-left:2%;
+        font-family: Oswald;
+        font-size: 2em;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    #linea {
+        width: 95%;
+    }
+
+    #regreso {
+        margin-left:2%;
+        margin-top: 5%;
+        font-family: Oswald;
+    }
+
+        #regreso > a {
+            color: #ffd171;
+            font-size: 1.5em;
+        }
+
+    body {
+        background-image: url(../../Imagenes/FondoBarbero.png);
+        background-attachment:fixed;
+        background-size:cover;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    div {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+    }
+</style>
